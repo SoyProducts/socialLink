@@ -11,6 +11,10 @@ import {
   Text,
   View
 } from 'react-native';
+import 'SpeechApp' from './src/components/SpeechApp';
+import 'TimerApp' from './src/components/TimerApp';
+import 'ToDoApp' from './src/components/ToDoApp';
+
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
