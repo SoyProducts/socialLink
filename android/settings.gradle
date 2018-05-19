@@ -1,0 +1,3 @@
+rootProject.name = 'socialLink'
+
+include ':app'
