@@ -6,34 +6,55 @@ import {
   TouchableOpacity,
   AsyncStorage
 } from 'react-native';
+// import CardItem from './CardItem';
+import initialSeeds from './initialSeeds'
 
 export default class CardIndex extends Component {
   constructor(props) {
     super(props);
     this.renderList = this.renderList.bind(this);
+    this.state = { currentCards: [] }
   }
 
-  componentWillMount() {
+
+
+  async componentWillMount() {
     try {
-      await AsyncStorage.getItem(key: 'initial');
-      //static getItem(key: string, [callback]: ?(error: ?Error, result: ?string) => void)
-      if (value !== null) {
-        console.log(value)
+      let initialState = JSON.parse(await AsyncStorage.getItem('initial'));
+      if (initialState !== null) {
+      } else {
+        await initialSeeds()
+        initialState = JSON.parse(await AsyncStorage.getItem('initial'));
       }
+      let newCardsArray = []
+      for (let i = 0; i < initialState.nextKeys.length; i++) {
+        let nextKey = initialState.nextKeys[i]
+        let nextCard = JSON.parse(await AsyncStorage.getItem(nextKey))
+        newCardsArray.push(nextCard)
+      }
+      this.setState({ currentCards: newCardsArray })
     } catch (error) {
       console.log("Error getting data" + error);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    //where we prepare to load the next_keys
-    //nextProps vs this.props rip
+    //when shit updates
   }
 
   renderList() {
     let list = []
     let subList = []
-    let startingIndex = 
+
+  }
+
+  render() {
+    console.log(this.state)
+    return (
+      <View>
+        <Text>"We're in the card index. Sakamoto is the cutest."</Text>
+      </View>
+    )
   }
 
 }

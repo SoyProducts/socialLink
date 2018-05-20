@@ -5,7 +5,7 @@ const CardItem = (props) => {
   return (
     <TouchableOpacity style={style.containerStyle} key={props.card.title}>
       <Image style={style.imageStyle} />
-      <Text>props.card.title</Text>
+      <Text>{props.card.title}</Text>
     </TouchableOpacity>
   )
 }
