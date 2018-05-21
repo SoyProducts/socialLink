@@ -10,13 +10,12 @@ import {
 import initialSeeds from './initialSeeds'
 
 export default class CardIndex extends Component {
+  
   constructor(props) {
     super(props);
     this.renderList = this.renderList.bind(this);
     this.state = { currentCards: [] }
   }
-
-
 
   async componentWillMount() {
     try {

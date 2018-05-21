@@ -3,7 +3,8 @@ import { Text, Image, View, TouchableOpacity } from 'react-native';
 
 const CardItem = (props) => {
   return (
-    <TouchableOpacity style={style.containerStyle} key={props.card.title}>
+    <TouchableOpacity style={style.containerStyle}
+      key={props.card.title}>
       <Image style={style.imageStyle} />
       <Text>{props.card.title}</Text>
     </TouchableOpacity>

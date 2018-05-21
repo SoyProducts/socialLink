@@ -24,6 +24,3 @@ let schema = {
         nextKeys: []
     }
 };
-
-//header is responsible for pushing onPress and poping when hitting
-//
